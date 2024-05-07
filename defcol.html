@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<title>Fourier image compressor website</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<link href="css/style.css" rel="stylesheet" type="text/css"> 
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css"> 
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+
+
+<header id="header_wrapper">
+  <div class="container">
+    <div class="header_box">
+      <!--<div class="logo"><a href="#">Resume</a></div>-->
+      <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div id="main-nav" class="collapse navbar-collapse navStyle">
+            <ul class="nav navbar-nav" id="mainNav">
+              <li class="active"><a href="index.html" class="scroll-link">home</a></li>
+              <li><a href="index.html#aboutUs" class="scroll-link">About US</a></li>
+              <li><a href="index.html#service" class="scroll-link">App Functions</a></li>
+              <li><a href="index.html#Portfolio" class="scroll-link">Info</a></li> 
+              <li><a href="index.html#contact" class="scroll-link">Download</a></li>
+            </ul>
+      </div>
+     </nav>
+    </div>
+  </div>
+</header>
+
+<section id="introduction">
+  <div class="htitle">
+    <div class="headder">
+      <h1>Colourless images</h1>
+      <p>why do we use them?</p>
+      </div>
+
+  </section>
+  
+	<style>
+		.drop-down-content {
+			display: none;
+		}
+		.drop-down.active .drop-down-content {
+			display: block;
+		}
+        .drop-down-trigger {
+		background-color: #f8f9fa;
+		border: 1px solid #e2e2e2;
+		border-radius: 8px;
+		padding: 12px 16px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+
+	</style>
+</head>
+<body style="background: black !important;">
+
+
+	<script>
+		var dropDown = document.querySelector('.drop-down');
+		var dropDownTrigger = document.querySelector('.drop-down-trigger');
+
+		dropDownTrigger.addEventListener('click', function() {
+			dropDown.classList.toggle('active');
+		});
+	</script>
+<style>
+
+
+/* Style the header */
+.headder {
+  padding: 20px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+
+/* Style the main content */
+.main {
+  margin: 20px;
+}
+
+/* Style the h1 element */
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
+
+/* Style the h2 element */
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+/* Style the p element */
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+.cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+
+.text-fld {
+  border: none;
+  background-color: white;
+  color: black;
+  font-family: "Computer Modern", serif;
+  width: 40%;
+  height: auto;
+  margin: 20px;
+}
+.drop-down-content {
+			display: none;
+		}
+.drop-down.active .drop-down-content {
+			display: block;
+		}
+.drop-down-trigger {
+		background-color: #f8f9fa;
+		border: 1px solid #e2e2e2;
+		border-radius: 8px;
+		padding: 12px 16px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+
+</style>
+<script>
+  var dropDown = document.querySelector('.drop-down');
+  var dropDownTrigger = document.querySelector('.drop-down-trigger');
+
+  dropDownTrigger.addEventListener('click', function() {
+    dropDown.classList.toggle('active');
+  });
+</script>
+</head>
+<body>
+<section>
+
+<div class="cont">
+ 
+
+  <div class=“text-fld” style="font-size: 16px !important;">  <br>
+    <br>You may have noticed that the output images are colourless and wondered why.The app output images are colourless for two main reasons: ease of comparison and compression efficiency. By removing colour information from the images, the app makes it easier for users to compare different aspects of the images, such as shape, texture, contrast and brightness. Colour can sometimes distract or confuse users when they are trying to evaluate the quality or relevance of an image.
+    
+  <br>
+  <br>
+  </div>
+  
+</section>
+<section id="imgcompress">
+<!--   <button id="someBtnId">Show text</button> -->
+
+  
+  <script>
+  const btn = document.getElementById("someBtnId");
+  const para_1 = document.getElementById("para_1");
+  const para_2 = document.getElementById("para_2");
+  
+  btn.addEventListener("click", function() {
+    if (para_2.style.display == "none") {
+      para_2.style.display = "block";
+      para_1.style.display = "none";
+    } else {
+      para_2.style.display = "none";
+      para_1.style.display = "block";
+    }
+  });
+  </script>
+<br>
+
+<div class="cont">
+
+<!-- The button that triggers the dropdown -->
+<!-- <button class="dropbtn">Image compression</button> -->
+
+
+    
+    <!-- Your HTML sector goes here -->
+  
+  </div>
+</div>
+</div>
+</section>
+<!-- Add some CSS for styling -->
+<style>
+/* Dropdown Button */
+.dropbtn {
+  background-color: #f8f9fa;
+  color: black;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+/* Show the dropdown menu on hover */
+.dropbtn:hover + .dropdown .dropdown-content {
+    display:block; 
+}
+</style>
+
+<!-- Add some JavaScript for functionality -->
+<!-- <script>
+// Get the button element
+var btn = document.querySelector(".dropbtn");
+
+// Get the dropdown content element
+var content = document.querySelector(".dropdown-content");
+
+// Toggle between showing and hiding the dropdown content when clicking on the button
+btn.onclick = function() {
+    if (content.style.display === "none") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+};
+</script> -->
+  <section id="defcol"></section>
+    <div class="cont"><div class=“text-fld” style="font-size: 16px !important;">
+        Another reason why the app output images are colourless is because they can be compressed more without a significant decline in quality. Colour images have more data than greyscale images, which means they take up more space and bandwidth. By converting colour images to greyscale, the app reduces the file size and optimizes the loading speed of the images. The app uses intelligent compression algorithms that retain most of the image quality while drastically reducing image size     <br>
+      <br>
+      <br>
+      We are working on a colour option for users who prefer to see their images in full colour. However, the colourless option will still be on by default for the reasons stated above. We believe that the colourless option provides a better user experience by making it easier and faster to compare images. The app output images are colourless for your convenience.<br>
+      <br>
+      <br>
+  </section>
+
+
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+</head>
+<body>
+<div id="slider">
+<input type="range" min="0" max="1" value="0" step="0.01" id="compression">
+<label for="compression">Compression ratio: <span id="ratio">0</span></label>
+</div>
+<div id="canvas"></div>
+<script>
+
+let img;
+let fft;
+let compressed;
+
+function preload() {
+  img = loadImage('https://c-static.smartphoto.com/structured/repositoryimage/tilegroup/shops/pets/dogs/tileimages/tileimage1x1/image/dogs-tileimage-1x1.jpg');
+}
+
+function setup() {
+  createCanvas(800, 600);
+  fft = new p5.FFT();
+  compressed = createImage(img.width, img.height);
+}
+
+function draw() {
+  background(220);
+  
+  let c = document.getElementById("compression").value;
+  document.getElementById("ratio").innerHTML = c;
+  
+  // convert image to grayscale
+  img.filter(GRAY);
+  
+  // apply Fourier transform to image pixels
+  let pixels = img.pixels.map(p => p / 255);
+  let spectrum = fft.analyze(pixels);
+  
+  // sort spectrum by magnitude
+  let sorted = spectrum.slice().sort((a,b) => b - a);
+  
+  // find threshold value based on compression ratio
+  let k = floor(c * spectrum.length);
+  let threshold = sorted[k];
+  
+  // filter out frequencies below threshold
+  let filtered = spectrum.map(f => f >= threshold ? f : 0);
+  
+   // apply inverse Fourier transform to filtered frequencies
+   let inverse = fft.inverse(filtered);
+
+   // map inverse values back to pixel range
+   let output = inverse.map(v => map(v, -1, +1, -255, +255));
+   
+   // update compressed image with output pixels
+   compressed.loadPixels();
+   for (let i = 0; i < output.length; i++) {
+     compressed.pixels[i] = output[i];
+   }
+   compressed.updatePixels();
+   
+   // display original and compressed images side by side
+   image(img, width /2 - img.width /2 , height /2 - img.height /2 );
+   image(compressed,width /2 + img.width /2 , height /2 - img.height /2 );
+
+   var compressionRatio = 0;
+var slider = document.getElementById("myRange");
+slider.addEventListener("input", function() {
+  compressionRatio = this.value;
+  console.log(compressionRatio);
+}
+,});
+</script>
+<section id="imgcompress">
+  <button id="someBtnId">Show text</button>
+<h2 id="para_1">Image compression</h2>
+<div ip="para_2" class="cont"><div class=“text-fld” style="font-size: 16px !important;">Fourier Image Compressor is an app that lets you shrink your images by using a clever math trick called the Fourier transform. This trick changes your image into a bunch of waves with different colors and strengths. You can pick how many waves you want to keep by sliding a bar. The more waves you keep, the better your image looks and the bigger it is. The fewer waves you keep, the worse your image looks and the smaller it is. FIC then turns your image back to normal and lets you save or share it.</div></div>
+
+  
+  <script>
+  const btn = document.getElementById("someBtnId");
+  const para_1 = document.getElementById("para_1");
+  const para_2 = document.getElementById("para_2");
+  
+  btn.addEventListener("click", function() {
+    if (para_2.style.display == "none") {
+      para_2.style.display = "block";
+      para_1.style.display = "none";
+    } else {
+      para_2.style.display = "none";
+      para_1.style.display = "block";
+    }
+  });
+  </script>
+</body>
+</html>
